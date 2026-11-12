@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101522">
+  <title>VisionCode — Image & Video to Code</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="#"><span class="brand-icon">V</span><span>Vision<span class="accent">Code</span></span></a>
+      <span class="badge">AI WEBSITE BUILDER</span>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow">TURN VISUALS INTO CODE</div>
+      <h1>From image or video<br><span class="gradient">to a working website.</span></h1>
+      <p>Upload a screenshot or a short video. VisionCode will study the layout and generate HTML, CSS, and JavaScript you can preview and download.</p>
+    </section>
+
+    <section class="workspace">
+      <div class="panel input-panel">
+        <div class="panel-title"><span class="step">01</span><div><h2>Upload your reference</h2><p>PNG, JPG, WEBP, or MP4 / MOV</p></div></div>
+        <label class="dropzone" id="dropzone" for="fileInput">
+          <input id="fileInput" type="file" accept="image/png,image/jpeg,image/webp,video/mp4,video/quicktime,video/webm">
+          <span class="upload-icon">↑</span>
+          <strong>Choose an image or video</strong>
+          <span>or drag and drop it here</span>
+          <small>Images up to 10 MB · Videos up to 30 MB</small>
+        </label>
+        <div id="fileInfo" class="file-info hidden"></div>
+        <label class="field-label" for="instructions">Additional instructions <span>Optional</span></label>
+        <textarea id="instructions" rows="4" placeholder="Example: Make it responsive, use a dark theme, keep the layout close to the reference..."></textarea>
+        <button id="generateBtn" class="primary-btn" disabled><span>Generate website code</span><span>→</span></button>
+        <p class="privacy-note">Your OpenAI API key stays on the server. It is never placed in this page's JavaScript.</p>
+        <div id="status" class="status" role="status"></div>
+      </div>
+
+      <div class="panel output-panel">
+        <div class="panel-title"><span class="step">02</span><div><h2>Your generated website</h2><p>Preview and inspect the code</p></div></div>
+        <div class="tabs">
+          <button class="tab active" data-tab="preview">Preview</button>
+          <button class="tab" data-tab="html">HTML</button>
+          <button class="tab" data-tab="css">CSS</button>
+          <button class="tab" data-tab="js">JavaScript</button>
+        </div>
+        <div id="previewPane" class="preview-pane">
+          <div class="empty-state"><div class="empty-art">〈/〉</div><strong>Your preview will appear here</strong><span>Upload a reference and generate your website.</span></div>
+          <iframe id="previewFrame" title="Generated website preview" sandbox="allow-scripts allow-forms"></iframe>
+        </div>
+        <pre id="codePane" class="code-pane hidden"><code id="codeText">Generated code will appear here.</code></pre>
+        <div class="output-actions">
+          <button id="copyBtn" class="secondary-btn" disabled>Copy current code</button>
+          <button id="downloadBtn" class="secondary-btn" disabled>Download website files</button>
+        </div>
+      </div>
+    </section>
+    <footer>VisionCode · Built to turn visual ideas into editable front-end code.</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
